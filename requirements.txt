@@ -1,0 +1,13 @@
+aiohttp
+botbuilder-core
+botbuilder-integration-aiohttp
+azure-identity
+psycopg2
+requests
+python-dotenv
+openai
+langchain
+langchain-community
+langchain-openai
+langchain-core
+langchain-pinecone
