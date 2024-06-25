@@ -27,6 +27,16 @@ SALESRESEARCH_ADAPTER = CloudAdapter(ConfigurationBotFrameworkAuthentication(SAL
 
 async def on_error(context: TurnContext, error: Exception):
     print(f"\n [on_turn_error] unhandled error: {error}", file=sys.stderr)
+
+    # Log additional details about the error
+    print(f"Error type: {type(error).__name__}")
+    print(f"Error args: {error.args}")
+    
+    # Log information about the current turn context
+    print(f"Activity type: {context.activity.type}")
+    print(f"Conversation ID: {context.activity.conversation.id}")
+    print(f"From ID: {context.activity.from_property.id}")
+    
     traceback.print_exc()
 
     await context.send_activity("The bot encountered an error or bug. Please contact the insurgence support team to resolve this.")
