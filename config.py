@@ -1,4 +1,5 @@
 import os
+import sys
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -6,8 +7,8 @@ class BotConfig:
     def __init__(self, app_id_env, app_password_env):
         self.APP_ID = os.environ.get(app_id_env, "")
         self.APP_PASSWORD = os.environ.get(app_password_env, "")
-        print(f"APP_ID: {self.APP_ID}")
-        print(f"APP_PASSWORD: {self.APP_PASSWORD}")
+        print(f"APP_ID: {self.APP_ID}", file=sys.stderr)
+        print(f"APP_PASSWORD: {self.APP_PASSWORD}", file=sys.stderr)
 
 MASERVICES_BOT_CONFIG = BotConfig("MASERVICES_MICROSOFT_APP_ID", "MASERVICES_MICROSOFT_APP_PASSWORD")
 TENDERED_BOT_CONFIG = BotConfig("TENDERED_MICROSOFT_APP_ID", "TENDERED_MICROSOFT_APP_PASSWORD")

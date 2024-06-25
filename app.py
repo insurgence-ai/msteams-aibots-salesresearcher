@@ -29,14 +29,14 @@ async def on_error(context: TurnContext, error: Exception):
     print(f"\n [on_turn_error] unhandled error: {error}", file=sys.stderr)
 
     # Log additional details about the error
-    print(f"Error type: {type(error).__name__}")
-    print(f"Error args: {error.args}")
+    print(f"Error type: {type(error).__name__}", file=sys.stderr)
+    print(f"Error args: {error.args}", file=sys.stderr)
     
     # Log information about the current turn context
-    print(f"Activity type: {context.activity.type}")
-    print(f"Conversation ID: {context.activity.conversation.id}")
-    print(f"From ID: {context.activity.from_property.id}")
-    
+    print(f"Activity type: {context.activity.type}", file=sys.stderr)
+    print(f"Conversation ID: {context.activity.conversation.id}", file=sys.stderr)
+    print(f"From ID: {context.activity.from_property.id}", file=sys.stderr)
+
     traceback.print_exc()
 
     await context.send_activity("The bot encountered an error or bug. Please contact the insurgence support team to resolve this.")
